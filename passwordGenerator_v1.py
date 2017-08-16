@@ -1,162 +1,75 @@
 # !/usr/bin/python3
 
-headerToInputSpacing = 20
+from ui import UserInterface as ui
+from generator import Generator as gen
 
-class Generator:
-    # Create the static screens the user will see.
-    Screens = {
-        'welcomeScreen' : """
-\n\n
-#----------------------------------------------------------------------------#
-#                                                                            #
-#                           PASSWORD GENERATOR                               #
-#                     Created by - Matthew Beckwith                          #
-#                                                                            #
-#----------------------------------------------------------------------------#
-\n\n
-""",
-        'newPasswordScreen' : """
-\n\n
-#----------------------------------------------------------------------------#
-#                                                                            #
-#                              NEW PASSWORD                                  #
-#                                                                            #
-#                                                                            #
-#----------------------------------------------------------------------------#
-\n\n
-""",
-        'savePasswordScreen' : """
-\n\n
-#----------------------------------------------------------------------------#
-#                                                                            #
-#                            SAVING PASSWORD                                 #
-#                                                                            #
-#                                                                            #
-#----------------------------------------------------------------------------#
-\n\n
-""",
-        'viewAllPasswordsScreen' : """
-\n\n
-#----------------------------------------------------------------------------#
-#                                                                            #
-#                          SHOW ALL PASSWORDS                                #
-#                                                                            #
-#                                                                            #
-#----------------------------------------------------------------------------#
-\n\n
-""",
-        'findPasswordScreen' : """
-\n\n
-#----------------------------------------------------------------------------#
-#                                                                            #
-#                           FIND PASSWORD                                    #
-#                                                                            #
-#                                                                            #
-#----------------------------------------------------------------------------#
-\n\n
-"""
-    }
+def drawScreen(SCREEN, option = None):
+    ui.clearScreen()
+    print(ui.Screen[SCREEN]['header'])
 
-    def basicMenu(self):
-        choice = int(input("""
-        What would you like to do?
+    if(option != None):
+        print("New Password: " + option)
+    
+    ui.innerSpace()
 
-        1 = Generate a New Password
-        2 = Show all Passwords
-        3 = Find a Password
-        4 = Quit
-        
-        """))
-        
-        if(choice == 4):
-            exit()
-        else:
-            print("\n" * 100)
-            if(choice == 3):
-                print(self.Screens['findPasswordScreen'])
-                print("\n" * headerToInputSpacing)
-                self.findPasswordMenu()
-            elif(choice == 2):
-                print(self.Screens['viewAllPasswordsScreen'])
-                print("\n" * headerToInputSpacing)
-                self.viewAllPasswordsMenu()
-            elif(choice == 1):
-                print(self.Screens['newPasswordScreen'])
-                print("\n" * headerToInputSpacing)
-                self.newPasswordMenu()
+    choice = 0
+
+    while True:
+        try:
+            if(SCREEN == 'findPasswordScreen'):
+                choice = input(ui.Screen[SCREEN]['menu'])
+                break
             else:
-                print("Please Pick an appropriate option\n")
-                self.basicMenu()
+                while(choice < 1) or (choice > ui.Screen[SCREEN]['choice_count']):
+                    choice = int(input(ui.Screen[SCREEN]['menu']))
+                break
+        except ValueError:
+            print(ui.Error['strOverInt'])
 
-    def findPasswordMenu(self):
-        choice = input("""
-        What name did you save the password as?
-
-             (type <back> to go back or <quit> to exit the program)
-       
-        """)
-        
-        if(choice == '<quit>'):
-            exit()
-        elif(choice == '<back>'):
-            startProgram()
+    if(SCREEN == 'welcomeScreen'):
+        if(choice == 1):
+            drawScreen('newPasswordScreen')
+        elif(choice == 2):
+            drawScreen('viewAllPasswordsScreen')
+        elif(choice == 3):
+            drawScreen('findPasswordScreen')
         else:
-            print("Searching for " + choice)
-
-    def viewAllPasswordsMenu(self):
-        choice = int(input("""
-        What would you like to do?
-
-        1 = Go Back
-        2 = Quit
-        
-        """))
-        
-        if(choice == 2):
-            exit()
-        elif(choice == 1):
-            startProgram()
+            quit()
+    elif(SCREEN == 'newPasswordScreen'):
+        if(choice == 1):
+            newPassword = gen.GenerateBasic(gen)
+        elif(choice == 2):
+            newPassword = gen.GenerateSpecial(gen)
+        elif(choice == 3):
+            newPassword = gen.GeneratePhrase(gen)
         else:
-            print("\n" * 100)
-            print("Please Pick an appropriate option\n")
-            self.viewAllPasswordsMenu()
+            quit()
 
-    def newPasswordMenu(self):
-        choice = int(input("""
-        What would you like to do?
-
-        1 = Generate a General New Password
-        2 = Generate a New Password WITH Special Characters
-        3 = Generate a Phrase Based Password
-        4 = Quit
+        drawScreen('savePasswordScreen',newPassword)
         
-        """))
-        
-        if(choice == 4):
-            exit()
+    elif(SCREEN == 'savePasswordScreen'):
+        if(choice == 1):
+            print("Saving Password")
+        elif(choice == 2):
+            newPassword = gen.GenerateBasic(gen)
+            drawScreen('savePasswordScreen',newPassword)
+        elif(choice == 3):
+            newPassword = gen.GenerateSpecial(gen)
+            drawScreen('savePasswordScreen',newPassword)
+        elif(choice == 4):
+            newPassword = gen.GeneratePhrase(gen)
+            drawScreen('savePasswordScreen',newPassword)
+        elif(choice == 5):
+            drawScreen('newPasswordScreen')
         else:
-            print("\n" * 100)
-            if(choice == 3):
-                print(self.Screens['findPasswordScreen'])
-                print("\n" * headerToInputSpacing)
-                self.findPasswordMenu()
-            elif(choice == 2):
-                print(self.Screens['viewAllPasswordsScreen'])
-                print("\n" * headerToInputSpacing)
-                self.viewAllPasswordsMenu()
-            elif(choice == 1):
-                print(self.Screens['newPasswordScreen'])
-                print("\n" * headerToInputSpacing)
-                self.newPasswordMenu()
-            else:
-                print("Please Pick an appropriate option\n")
-                self.basicMenu()
+            quit()
+    elif(SCREEN == 'viewAllPasswordsScreen'):
+        if(choice == 1):
+            drawScreen("welcomeScreen")
+        else:
+            quit()
+    elif(SCREEN == 'findPasswordScreen'):
+        print("Finding " + choice + "...")
 
-def startProgram():
-    gen = Generator()
-    print("\n" * 100)
-    print(gen.Screens['welcomeScreen'])
-    print("\n" * headerToInputSpacing)
-    gen.basicMenu()
 
-startProgram()
+drawScreen("welcomeScreen")
