@@ -11,6 +11,6 @@ This Generates Passwords for you.  Whether you are looking for:
 * A Special Characters Password - Generated with random Characters [a-z], [A-Z], [0-9], and ['%','/','-','.','(',')','#', and 'Underscore']
 * A Phrase Based Password - Generated using a growing list of nouns, verbs, and prepositions
 
-#Known Bugs:
+# Known Bugs -
 ---
 As of right now, I have not completed the searching for passwords nor showing all passwords.  So if you try to do either of those, it will just print to the screen and nothing more.  Aside from that, let me know if you find anything.
