@@ -6,7 +6,7 @@ class UserInterface:
 
     def innerSpace(space = 20):
         return print("\n" * space)
-    
+
     Screen = {
         'welcomeScreen' : {
             'header' : """
@@ -24,7 +24,7 @@ class UserInterface:
 2 = Show all Passwords
 3 = Find a Password
 4 = Quit
-        
+
 """,
             'choice_count' : 4
         },
@@ -44,7 +44,7 @@ class UserInterface:
 2 = Generate a New Password WITH Special Characters
 3 = Generate a Phrase Based Password
 4 = Quit
-        
+
 """,
             'choice_count' : 4
         },
@@ -66,9 +66,28 @@ class UserInterface:
 4 = Reroll a New Phrase Based Password
 5 = Back
 6 = Quit
-            
+
 """,
             'choice_count' : 6
+        },
+        'verifySaveScreen' : {
+            'header' : """
+#----------------------------------------------------------------------------#
+#                                                                            #
+#                        VERIFY SAVE INFORMATION                             #
+#                                                                            #
+#                                                                            #
+#----------------------------------------------------------------------------#
+""",
+            'menu' : """
+                       What would you like to do?
+
+1 = SAVE this Password with this Information
+2 = Re-Enter Save Information
+3 = Quit WITHOUT Saving
+
+""",
+            'choice_count' : 3
         },
         'viewAllPasswordsScreen' : {
             'header' : """
@@ -84,7 +103,7 @@ class UserInterface:
 
 1 = Go Back
 2 = Quit
-        
+
 """,
             'choice_count' : 2
         },
@@ -101,7 +120,7 @@ class UserInterface:
                 What name did you save the password as?
 
 (type <back> to go back or <quit> to exit the program)
-       
+
 """,
             'choice_count' : -1
         }

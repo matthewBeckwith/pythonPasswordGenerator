@@ -2,6 +2,7 @@
 
 from ui import UserInterface as ui
 from generator import Generator as gen
+from DatabaseController import Database as db
 
 def drawScreen(SCREEN, option = None):
     ui.clearScreen()
@@ -49,7 +50,7 @@ def drawScreen(SCREEN, option = None):
 
     elif(SCREEN == 'savePasswordScreen'):
         if(choice == 1):
-            print("Saving Password")
+            db.save(option)
         elif(choice == 2):
             newPassword = gen.GenerateBasic()
             drawScreen('savePasswordScreen',newPassword)
