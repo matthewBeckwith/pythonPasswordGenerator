@@ -9,7 +9,7 @@ def drawScreen(SCREEN, option = None):
 
     if(option != None):
         print("New Password: " + option)
-    
+
     ui.innerSpace()
 
     choice = 0
@@ -37,27 +37,27 @@ def drawScreen(SCREEN, option = None):
             quit()
     elif(SCREEN == 'newPasswordScreen'):
         if(choice == 1):
-            newPassword = gen.GenerateBasic(gen)
+            newPassword = gen.GenerateBasic()
         elif(choice == 2):
-            newPassword = gen.GenerateSpecial(gen)
+            newPassword = gen.GenerateSpecial()
         elif(choice == 3):
-            newPassword = gen.GeneratePhrase(gen)
+            newPassword = gen.GeneratePhrase()
         else:
             quit()
 
         drawScreen('savePasswordScreen',newPassword)
-        
+
     elif(SCREEN == 'savePasswordScreen'):
         if(choice == 1):
             print("Saving Password")
         elif(choice == 2):
-            newPassword = gen.GenerateBasic(gen)
+            newPassword = gen.GenerateBasic()
             drawScreen('savePasswordScreen',newPassword)
         elif(choice == 3):
-            newPassword = gen.GenerateSpecial(gen)
+            newPassword = gen.GenerateSpecial()
             drawScreen('savePasswordScreen',newPassword)
         elif(choice == 4):
-            newPassword = gen.GeneratePhrase(gen)
+            newPassword = gen.GeneratePhrase()
             drawScreen('savePasswordScreen',newPassword)
         elif(choice == 5):
             drawScreen('newPasswordScreen')
