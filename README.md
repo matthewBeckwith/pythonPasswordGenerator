@@ -2,7 +2,7 @@
 
 <p>This is a standalone program that will create, store, and retrieve passwords.  First Version will be a console made program as a proof of concept and working kinks out, with a final version having a GUI.</p>
 
-<p>This is just a project i like to do, much like little [Tic-Tac-Toe](https://github.com/matthewBeckwith/TeachBradPython_Tic-Tac-Toe/tree/gfx) Games or 'Rock, Paper, Scissors' to keep me programming and learning and becoming more efficient as a programmer overall. I thought, maybe others would like to see instead of just throwing them away and rebuilding again at a later date... enjoy!</p>
+<p>This is just a project i like to do, much like little <a href="https://github.com/matthewBeckwith/TeachBradPython_Tic-Tac-Toe/tree/gfx">Tic-Tac-Toe</a> Games or 'Rock, Paper, Scissors' to keep me programming and learning and becoming more efficient as a programmer overall. I thought, maybe others would like to see instead of just throwing them away and rebuilding again at a later date... enjoy!</p>
 <hr>
 
 # What it does -
