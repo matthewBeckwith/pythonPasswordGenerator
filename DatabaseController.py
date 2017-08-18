@@ -41,4 +41,6 @@ class Database:
         elif(choice == 2):
             Database.save(password)
         else:
+            c.close()
+            conn.close()
             quit()
