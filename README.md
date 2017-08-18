@@ -1,8 +1,8 @@
 # pythonPasswordGenerator
 
-<p>This is a standalone program that will create, store, and retrieve passwords.  First Version will be a console made program as a proof of concept and working kinks out, with a final version having a GUI.
+<p>This is a standalone program that will create, store, and retrieve passwords.  First Version will be a console made program as a proof of concept and working kinks out, with a final version having a GUI.</p>
 
-This is just a project i like to do, much like little 'Tic-Tac-Toe' Games or 'Rock, Paper, Scissors' to keep me programming and learning and becoming more efficient as a programmer overall. I thought, maybe others would like to see instead of just throwing them away and rebuilding again at a later date... enjoy!</p>
+<p>This is just a project i like to do, much like little 'Tic-Tac-Toe' Games or 'Rock, Paper, Scissors' to keep me programming and learning and becoming more efficient as a programmer overall. I thought, maybe others would like to see instead of just throwing them away and rebuilding again at a later date... enjoy!</p>
 ---
 
 # What it does -
