@@ -7,7 +7,7 @@
 
 # What it does -
 
-This Generates Passwords for you.  Whether you are looking for:
+This Generates three kinds of Passwords for you, saves, and searches saved passwords.
 
 * A Basic Password - Generated with random Characters [a-z], [A-Z], [0-9]
 * A Special Characters Password - Generated with random Characters [a-z], [A-Z], [0-9], and ['%','/','-','.','(',')','#', and 'Underscore']
