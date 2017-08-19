@@ -16,5 +16,5 @@ This Generates three kinds of Passwords for you, saves, and searches saved passw
 
 # Known Bugs -
 
-<p>As of right now, I have not completed the searching for passwords nor showing all passwords.  So if you try to do either of those, it will just print to the screen and nothing more.  Aside from that, let me know if you find anything.</p>
+<p>None, Let me know!</p>
 <hr>

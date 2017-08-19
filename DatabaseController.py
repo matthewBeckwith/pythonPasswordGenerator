@@ -44,3 +44,34 @@ class Database:
             c.close()
             conn.close()
             quit()
+
+    def getAll():
+        conn = sqlite3.connect('savedPasswords.db')
+        c = conn.cursor()
+
+        ui.clearScreen()
+        print(ui.Screen['viewAllPasswordsScreen']['header'])
+
+        for row in c.execute("SELECT * FROM passwords ORDER BY date"):
+            print(row)
+
+        c.close()
+        conn.close()
+        input("Hit any Key to proceed...")
+
+    def searchDB(name):
+        conn = sqlite3.connect('savedPasswords.db')
+        c = conn.cursor()
+
+        ui.clearScreen()
+        print(ui.Screen['findPasswordScreen']['header'])
+        ui.innerSpace(2)
+
+        for row in c.execute("SELECT * FROM passwords WHERE name=?",(name,)):
+            print(row)
+
+        ui.innerSpace(15)
+
+        c.close()
+        conn.close()
+        input("Hit any Key to proceed...")

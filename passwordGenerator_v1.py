@@ -31,7 +31,8 @@ def drawScreen(SCREEN, option = None):
         if(choice == 1):
             drawScreen('newPasswordScreen')
         elif(choice == 2):
-            drawScreen('viewAllPasswordsScreen')
+            db.getAll()
+            drawScreen("welcomeScreen")
         elif(choice == 3):
             drawScreen('findPasswordScreen')
         else:
@@ -64,13 +65,8 @@ def drawScreen(SCREEN, option = None):
             drawScreen('newPasswordScreen')
         else:
             quit()
-    elif(SCREEN == 'viewAllPasswordsScreen'):
-        if(choice == 1):
-            drawScreen("welcomeScreen")
-        else:
-            quit()
     elif(SCREEN == 'findPasswordScreen'):
-        print("Finding " + choice + "...")
-
+        db.searchDB(choice)
+        drawScreen("welcomeScreen")
 
 drawScreen("welcomeScreen")
