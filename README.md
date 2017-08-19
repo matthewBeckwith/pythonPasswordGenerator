@@ -23,6 +23,8 @@ Clone or Download the Repo, then:
 1. For Console Program:
   - In Terminal, change to the downloaded DIR and type "python3 passwordGenerator_v1.py" and you're good to go!
 
+---
+
 
 # Known Bugs -
 
